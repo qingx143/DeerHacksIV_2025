@@ -8,7 +8,7 @@
 
   <title>StudyBuddies</title>
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
 
   <!-- Optional: Custom styles for the sidebar -->
   <style>
@@ -21,60 +21,101 @@
       padding-top: 20px;
       border-right: 1px solid #c7c7c7;
     }
+
+    /* adding the border to the profiles */
+    #profiles {
+      border-radius: 15px;
+      border: 1.5px solid #c7c7c7;
+      padding-left: 10px;
+      /* padding-right: 20px; */
+      /* padding-top: 20px; */
+      /* padding-bottom: 20px; */
+      width: 200px;
+      height: 80px; 
+    }
   </style>
+
+  <!-- Using styles.css -->
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 
 <body>
-    <header class="sticky-top sticky-header p-1">
-        <div class="container">
-          <h1>Study Buddies</h1>
-        </div>
-      </header>
+  <!-- .sticky-header -->
+  <header class="sticky-top sticky-header p-1">
+    <div class="container">
+      <h1>Study Buddies</h1>
+
+      <div style="position: absolute; top: 100; right: 0; width: 100px; text-align:right;">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="settings.html">Settings</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </header>
+
   <div class="container-fluid">
     <div class="row">
-        <nav class="col-md-2 d-flex flex-column bg-light sidebar" style="min-height: 100vh;">
-            <!-- sidebar links -->
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link" href="friends.html">Friends</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="groupchats.html">Group Chats</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="communities.html">Communities</a>
-              </li>
-            </ul>
-          
-            <!-- putting settings to the bottom -->
-            <div class="mt-auto">
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a class="nav-link" href="settings.html">Settings</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
+
+      <!-- .sidebar -->
+      <nav class="col-md-2 d-flex flex-column bg-light sidebar" style="min-height: 100vh;">
+        <!-- sidebar links -->
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="communities.html">Communities</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="groupchats.html">Group Chats</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="friends.html">Friends</a>
+          </li>
+        </ul>
+        
+        <hr>
+        
+        <p>Suggested Friends:</p>
+          <ul id="profiles">
+            <!-- empty -->
+          </ul>
+
+          <ul id="profiles">
+          <!-- empty -->
+          </ul>
+      
+          <ul id="profiles">
+            <!-- empty -->
+          </ul>
+
+          <ul id="profiles">
+            <!-- empty -->
+          </ul>
+      </nav>
           
 
       <!-- Main Content Area -->
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <h1>Welcome, Name</h1>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-            <!-- Flex container to center the content -->
-            <div class="d-flex justify-content-center align-items-center" style="height: 60vh;">
-              <!-- Rounded rectangle container -->
-              <div class="text-center p-4" style="border: 1px solid black; border-radius: 15px; width: 400px; height: 400px; margin-left: -450px;">
-                <h2>Your Profile</h2>
-                <p><strong>Courses:</strong> [List Courses]</p>
-                <p><strong>Hobbies:</strong> [List Hobbies]</p>
-                <p><strong>Communities:</strong> [List Communities]</p>
-              </div>
+          
+          <!-- Flex container to center the content -->
+          <div class="d-flex justify-content-center align-items-center" style="height: 60vh;">
+            <!-- Rounded rectangle container -->
+            <div class="text-center p-4" style="border: 1px solid black; border-radius: 15px; width: 400px; height: 400px; margin-left: -450px;">
+              <h2>Your Profile</h2>
+              
+              <hr>
+
+              <p><strong>Courses:</strong> [List Courses]</p>
+              <p><strong>Hobbies:</strong> [List Hobbies]</p>
+              <p><strong>Communities:</strong> [List Communities]</p>
             </div>
-          </main>
-          
-          
+          </div>
+
+        </main>
       </main>
     </div>
   </div>
