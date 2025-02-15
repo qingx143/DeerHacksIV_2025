@@ -19,22 +19,30 @@
 <body>
   <div class="container-fluid">
     <div class="row">
-      <!-- Sidebar: Navbar on the left with 3 tabs -->
-      <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-        <div class="sidebar-sticky">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link active" href="#">Tab 1</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Tab 2</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Tab 3</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+        <nav class="col-md-2 d-flex flex-column bg-light sidebar" style="min-height: 100vh;">
+            <!-- Top Navigation Links -->
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="friends.html">Friends</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="groupchats.html">Group Chats</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="communities.html">Communities</a>
+              </li>
+            </ul>
+          
+            <!-- Spacer to push the settings to the bottom -->
+            <div class="mt-auto">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link" href="settings.html">Settings</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          
 
       <!-- Main Content Area -->
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
