@@ -8,7 +8,7 @@
 
   <title>UConnecT</title>
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
 
   <!-- Optional: Custom styles for the sidebar -->
   <style>
@@ -21,40 +21,72 @@
       padding-top: 20px;
       border-right: 1px solid #c7c7c7;
     }
+
+    /* adding the border to the profiles */
+    #profiles {
+      border-radius: 15px;
+      border: 1.5px solid #c7c7c7;
+      padding-left: 10px;
+      /* padding-right: 20px; */
+      /* padding-top: 20px; */
+      /* padding-bottom: 20px; */
+      width: 200px;
+      height: 80px; 
+    }
   </style>
+
+  <!-- Using styles.css -->
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 
 <body>
     <header class="sticky-top sticky-header p-1">
-        <div class="container d-flex align-items-center" style="margin-left: 15px;"">
-            <img src="images/UConnecT icon.png" alt="UConnecT Logo" style="height: 50px; margin-right: 10px;">
-            <h1 style="font-family: Georgia, serif; margin: 0;">UConnecT</h1>
-        </div>
+      <div class="container d-flex align-items-center" style="margin-left: 15px;"">
+        <img src="images/UConnecT icon.png" alt="UConnecT Logo" style="height: 50px; margin-right: 10px;">
+        <h1 style="font-family: Georgia, serif; margin: 0;">UConnecT</h1>
+        <div style="position: absolute; top: 100; right: 0; width: 100px; text-align:right;">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link" href="settings.html">Settings</a>
+            </li>
+          </ul>
+        </div>  
+      </div>
     </header>
-    
   <div class="container-fluid">
     <div class="row">
         <nav class="col-md-2 d-flex flex-column bg-light sidebar" style="min-height: 100vh;">
             <!-- sidebar links -->
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link" href="communities.html" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;"><strong>Communities</strong></a>
+                <a class="nav-link" href="friends.html" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;"><strong>Friends</strong></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="groupchats.html" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;"><strong>Group Chats</strong><a>
-              </li>
+                </li>
               <li class="nav-item">
-                <a class="nav-link" href="friends.html" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;"><strong>Friends</strong></a>
+                <a class="nav-link" href="communities.html" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;"><strong>Communities</strong></a>
               </li>
             </ul>
           
-            <!-- putting settings to the bottom -->
-            <div class="mt-auto">
-              <ul class="nav flex-column">
-                <li class="nav-item">
-                  <a class="nav-link" href="settings.html" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;" ><strong>Settings</strong></a>
-                </li>
+            <hr>
+        
+            <p>Suggested Friends:</p>
+              <ul id="profiles">
+                <!-- empty -->
+              </ul>
+
+              <ul id="profiles">
+              <!-- empty -->
+              </ul>
+          
+              <ul id="profiles">
+                <!-- empty -->
+              </ul>
+
+              <ul id="profiles">
+                <!-- empty -->
               </ul>
             </div>
           </nav>
@@ -69,6 +101,9 @@
               <!-- Rounded rectangle container -->
               <div class="text-center p-4" style="border: 1px solid black; border-radius: 15px; width: 400px; height: 400px; margin-left: -450px;">
                 <h2 style="font-family: monospace;">Your Profile</h2>
+
+                <hr>
+
                 <p style="font-family: monospace;"><strong>Courses:</strong> [List Courses]</p>
                 <p style="font-family: monospace;"><strong>Hobbies:</strong> [List Hobbies]</p>
                 <p style="font-family: monospace;"><strong>Communities:</strong> [List Communities]</p>
