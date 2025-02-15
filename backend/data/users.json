@@ -3,12 +3,15 @@
         "username": "alice",
         "password": "password123",
         "courses": ["CSC108", "CSC148"],
-        "hobbies": ["Reading", "Swimming"]
+        "hobbies": ["Reading", "Swimming"],
+        "community": ["UTMSAM", "Deerhacks"]
     },
     {
         "username": "bob",
         "password": "securepass",
         "courses": ["MAT137", "PHY131"],
-        "hobbies": ["Gaming", "Running"]
+        "hobbies": ["Gaming", "Running"],
+        "community": ["MCSS", "Deerhacks"]
+
     }
 ]

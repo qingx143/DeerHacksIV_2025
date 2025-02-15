@@ -8,6 +8,8 @@ class User(db.Model):
     password = db.Column(db.String(100), nullable=False)
     courses = db.Column(db.Text, nullable=True)  # Store as comma-separated values
     hobbies = db.Column(db.Text, nullable=True)
+    community = db.Column(db.Text, nullable=True)
+
     
     # Relationship to get a user's friends
     friends = db.relationship(

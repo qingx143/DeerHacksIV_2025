@@ -4,6 +4,8 @@ from flask_jwt_extended import JWTManager, create_access_token
 from flask_sqlalchemy import SQLAlchemy
 from models import db, User, QuizResponse, Friendship
 import json
+import openai
+import os
 
 app = Flask(__name__)
 
@@ -55,7 +57,8 @@ def load_json():
                 username=user["username"],
                 password=hashed_password,
                 courses=",".join(user["courses"]),
-                hobbies=",".join(user["hobbies"])
+                hobbies=",".join(user["hobbies"]),
+                community=",".join(user["community"])
             )
             db.session.add(new_user)
 
@@ -101,6 +104,91 @@ def get_friends(username):
     ]
     
     return jsonify({"username": user.username, "friends": friends})
+
+
+
+
+# pair compatibility using openAI
+
+openai.api_key = os.getenv("OPENAI_API_KEY", "your-api-key")
+
+@app.route("/")
+def home():
+    return jsonify({"message": "OpenAI API is running!"})
+
+@app.route("/find_study_buddies", methods=["POST"])
+def find_study_buddies():
+    """Fetches user data and finds the best study buddies using OpenAI."""
+    data = request.json
+    username = data.get("username")
+
+    # Retrieve the requesting user from the database
+    user = User.query.filter_by(username=username).first()
+    if not user:
+        return jsonify({"error": "User not found"}), 404
+
+    # Fetch all other users from the database
+    other_users = User.query.filter(User.username != username).all()
+    if not other_users:
+        return jsonify({"message": "No other users found to match."}), 200
+
+    # Convert data to structured format
+    user_data = {
+        "username": user.username,
+        "courses": user.courses.split(",") if user.courses else [],
+        "hobbies": user.hobbies.split(",") if user.hobbies else []
+    }
+
+    other_users_data = [
+        {
+            "username": u.username,
+            "courses": u.courses.split(",") if u.courses else [],
+            "hobbies": u.hobbies.split(",") if u.hobbies else []
+        }
+        for u in other_users
+    ]
+
+    # AI Prompt for Finding Compatible Users
+    prompt = f"""
+    You are an intelligent system that finds the best study buddies at university.
+    Match the following user with the top 3 most compatible students based on shared courses and hobbies.
+
+    **User:**
+    - Name: {user_data["username"]}
+    - Courses: {", ".join(user_data["courses"])}
+    - Hobbies: {", ".join(user_data["hobbies"])}
+
+    **Other Users:**
+    {other_users_data}
+
+    **Instructions:**
+    - Find the top 3 most compatible users based on **shared courses (higher priority)** and hobbies.
+    - Return the result in **valid JSON format** like this:
+
+    ```json
+    {{
+        "matches": [
+            {{"username": "best_match_1"}},
+            {{"username": "best_match_2"}},
+            {{"username": "best_match_3"}}
+        ]
+    }}
+    ```
+
+    **Only return the JSON, nothing else.**
+    """
+
+    # Send request to OpenAI
+    response = openai.ChatCompletion.create(
+        model="gpt-4",  # You can use "gpt-3.5-turbo" if needed
+        messages=[{"role": "system", "content": "You are an expert in matching students based on courses and hobbies."},
+                  {"role": "user", "content": prompt}]
+    )
+
+    # Parse AI Response (Ensure it is JSON)
+    ai_response = response["choices"][0]["message"]["content"]
+
+    return jsonify({"matches": ai_response})
 
 if __name__ == "__main__":
     app.run(debug=True)
