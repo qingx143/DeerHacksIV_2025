@@ -12,7 +12,10 @@
 
   <!-- Optional: Custom styles for the sidebar -->
   <style>
-    /* Make the sidebar full height and add a border for separation */
+    .sticky-header {
+      background-color: #283c6c;
+      color: white;
+    }
     .sidebar {
       height: 100vh;
       padding-top: 20px;
@@ -23,10 +26,15 @@
 
 
 <body>
+    <header class="sticky-top sticky-header p-1">
+        <div class="container">
+          <h1>Study Buddies</h1>
+        </div>
+      </header>
   <div class="container-fluid">
     <div class="row">
         <nav class="col-md-2 d-flex flex-column bg-light sidebar" style="min-height: 100vh;">
-            <!-- Top Navigation Links -->
+            <!-- sidebar links -->
             <ul class="nav flex-column">
               <li class="nav-item">
                 <a class="nav-link" href="friends.html">Friends</a>
@@ -39,7 +47,7 @@
               </li>
             </ul>
           
-            <!-- Spacer to push the settings to the bottom -->
+            <!-- putting settings to the bottom -->
             <div class="mt-auto">
               <ul class="nav flex-column">
                 <li class="nav-item">
@@ -54,10 +62,10 @@
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <h1>Welcome, Name</h1>
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-            <!-- Flex container that centers content both vertically and horizontally -->
-            <div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
-              <!-- Profile details container -->
-              <div class="text-center">
+            <!-- Flex container to center the content -->
+            <div class="d-flex justify-content-center align-items-center" style="height: 60vh;">
+              <!-- Rounded rectangle container -->
+              <div class="text-center p-4" style="border: 1px solid black; border-radius: 15px; width: 400px; height: 400px; margin-left: -450px;">
                 <h2>Your Profile</h2>
                 <p><strong>Courses:</strong> [List Courses]</p>
                 <p><strong>Hobbies:</strong> [List Hobbies]</p>
@@ -65,6 +73,7 @@
               </div>
             </div>
           </main>
+          
           
       </main>
     </div>
