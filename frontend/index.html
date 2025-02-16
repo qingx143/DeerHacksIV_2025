@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>UConnecT</title>
+
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
 
@@ -41,80 +42,75 @@
 
 
 <body>
-    <header class="sticky-top sticky-header p-1">
-      <div class="container d-flex align-items-center" style="margin-left: 15px;"">
-        <img src="images/UConnecT icon.png" alt="UConnecT Logo" style="height: 50px; margin-right: 10px;">
-        <h1 style="font-family: Georgia, serif; margin: 0;">UConnecT</h1>
-        <div style="position: absolute; top: 100; right: 0; width: 100px; text-align:right;">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link" href="settings.html">Settings</a>
-            </li>
-          </ul>
-        </div>  
-      </div>
-    </header>
+  <header class="sticky-top sticky-header p-1">
+    <div class="container d-flex align-items-center" style="margin-left: 15px;">
+      <img src="images/UConnecT icon.png" alt="UConnecT Logo" style="height: 50px; margin-right: 10px;">
+      <h1 style="font-family: Georgia, serif; margin: 0;">UConnecT</h1>
+      <div style="position: absolute; top: 100; right: 0; width: 100px; text-align:right;">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" href="settings.html">Settings</a>
+          </li>
+        </ul>
+      </div>  
+    </div>
+  </header>
+
   <div class="container-fluid">
     <div class="row">
-        <nav class="col-md-2 d-flex flex-column bg-light sidebar" style="min-height: 100vh;">
-            <!-- sidebar links -->
-            <ul class="nav flex-column">
-              <li class="nav-item">
-                <a class="nav-link" href="friends.html" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;"><strong>Friends</strong></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="groupchats.html" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;"><strong>Group Chats</strong><a>
-                </li>
-              <li class="nav-item">
-                <a class="nav-link" href="communities.html" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;"><strong>Communities</strong></a>
-              </li>
-            </ul>
-          
-            <hr>
-        
-            <p>Suggested Friends:</p>
-              <ul id="profiles">
-                <!-- empty -->
-              </ul>
+      <nav class="col-md-2 d-flex flex-column bg-light sidebar" style="min-height: 100vh;">
+        <!-- sidebar links -->
+        <ul class="nav flex-column">
+          <li class="nav-item">            
+            <a class="nav-link" href="communities.html" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;"><strong>Communities</strong></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="groupchats.html" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;"><strong>Group Chats</strong><a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="friends.html" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 20px;"><strong>Friends</strong></a>
+          </li>
+        </ul>
+      
+        <hr>
+      
+        <p>Suggested Friends:</p>
+        <ul id="profiles">
+          <!-- empty -->
+        </ul>
 
-              <ul id="profiles">
-              <!-- empty -->
-              </ul>
-          
-              <ul id="profiles">
-                <!-- empty -->
-              </ul>
+        <ul id="profiles">
+        <!-- empty -->
+        </ul>
+    
+        <ul id="profiles">
+          <!-- empty -->
+        </ul>
 
-              <ul id="profiles">
-                <!-- empty -->
-              </ul>
-            </div>
-          </nav>
-          
+        <ul id="profiles">
+          <!-- empty -->
+        </ul>
+      </nav>
 
       <!-- Main Content Area -->
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
         <h1 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Welcome, Name</h1>
-        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-            <!-- Flex container to center the content -->
-            <div class="d-flex justify-content-center align-items-center" style="height: 60vh;">
-              <!-- Rounded rectangle container -->
-              <div class="text-center p-4" style="border: 1px solid black; border-radius: 15px; width: 400px; height: 400px; margin-left: -450px;">
-                <h2 style="font-family: monospace;">Your Profile</h2>
+        <!-- Flex container to center the content -->
+        <div class="d-flex justify-content-center align-items-center" style="height: 60vh;">
+          <!-- Rounded rectangle container -->
+          <div class="text-center p-4" style="border: 1px solid black; border-radius: 15px; width: 400px; height: 400px; margin-left: -450px;">
+            <h2 style="font-family: monospace;">Your Profile</h2>
 
-                <hr>
+            <hr>
 
-                <p style="font-family: monospace;"><strong>Courses:</strong> [List Courses]</p>
-                <p style="font-family: monospace;"><strong>Hobbies:</strong> [List Hobbies]</p>
-                <p style="font-family: monospace;"><strong>Communities:</strong> [List Communities]</p>
-              </div>
-            </div>
-          </main>
-          
-          
+            <p style="font-family: monospace;"><strong>Courses:</strong> [List Courses]</p>
+            <p style="font-family: monospace;"><strong>Hobbies:</strong> [List Hobbies]</p>
+            <p style="font-family: monospace;"><strong>Communities:</strong> [List Communities]</p>
+          </div>
+        </div>
       </main>
     </div>
-  </div>
+  </div>  
 
   <!-- Bootstrap JS dependencies (Optional: only needed if you use interactive Bootstrap components) -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
