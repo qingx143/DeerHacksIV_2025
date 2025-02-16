@@ -106,8 +106,6 @@ def get_friends(username):
     return jsonify({"username": user.username, "friends": friends})
 
 
-
-
 # pair compatibility using openAI
 
 openai.api_key = os.getenv("OPENAI_API_KEY", "your-api-key")
@@ -136,14 +134,18 @@ def find_study_buddies():
     user_data = {
         "username": user.username,
         "courses": user.courses.split(",") if user.courses else [],
-        "hobbies": user.hobbies.split(",") if user.hobbies else []
+        "hobbies": user.hobbies.split(",") if user.hobbies else [],
+        "community": user.community.split(",") if user.community else []
+
     }
 
     other_users_data = [
         {
             "username": u.username,
             "courses": u.courses.split(",") if u.courses else [],
-            "hobbies": u.hobbies.split(",") if u.hobbies else []
+            "hobbies": u.hobbies.split(",") if u.hobbies else [],
+            "community": u.community.split(",") if u.community else []
+
         }
         for u in other_users
     ]
@@ -151,18 +153,19 @@ def find_study_buddies():
     # AI Prompt for Finding Compatible Users
     prompt = f"""
     You are an intelligent system that finds the best study buddies at university.
-    Match the following user with the top 3 most compatible students based on shared courses and hobbies.
+    Match the following user with the top 3 most compatible students based on shared courses, hobbies and communities.
 
     **User:**
     - Name: {user_data["username"]}
     - Courses: {", ".join(user_data["courses"])}
     - Hobbies: {", ".join(user_data["hobbies"])}
+    - Community: {", ".join(user_data["community"])}
 
     **Other Users:**
     {other_users_data}
 
     **Instructions:**
-    - Find the top 3 most compatible users based on **shared courses (higher priority)** and hobbies.
+    - Find the top 3 most compatible users based on shared courses, hobbies, and communities.
     - Return the result in **valid JSON format** like this:
 
     ```json
