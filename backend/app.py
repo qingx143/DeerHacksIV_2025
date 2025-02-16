@@ -26,7 +26,7 @@ with app.app_context():
 def register():
     data = request.json
     hashed_password = bcrypt.generate_password_hash(data["password"]).decode("utf-8")
-    new_user = User(username=data["username"], password=hashed_password, courses=data["courses"], hobbies=data["hobbies"])
+    new_user = User(username=data["username"], password=hashed_password, courses=data["courses"], hobbies=data["hobbies"], community=data["community"])
     db.session.add(new_user)
     db.session.commit()
     return jsonify({"message": "User created successfully"}), 201
